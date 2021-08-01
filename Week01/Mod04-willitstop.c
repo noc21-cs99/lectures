@@ -14,7 +14,7 @@ int main(void) {
     else{
     printf("NIE");
     }
-	  return 0;
+    return 0;
   
 }
 //https://www.geeksforgeeks.org/builtin-functions-gcc-compiler/
