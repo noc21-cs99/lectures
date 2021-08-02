@@ -1,5 +1,5 @@
-# lectures
-Code shown in the lectures
-For the problems discussed in the lectures the solutions are accepted for languages other than the one provided in the repository
+# Reference Material for Getting Started with CP (an NPTEL course)
 
-PS: If there are different solutions submitted in the same language, then the owner of the repository may decide as per convenience.
+This repository contains the code shown in the lectures for the NPTEL course on Getting Started with Competitive Programming. You can find the course website [here](https://www.craft.do/s/AcEMNb4NLdHlQo). You are welcome to join the discussion at our [Discord community](https://discord.gg/etdD3SSJ6T). 
+
+We look forward to recieving your PRs for solutions in other languages! Please include your name and discord ID (if applicable), and to the extent possible, follow the same solution and documentation structure as in the sample solutions (improvements and suggestions are always welcome) - thanks in advance! 
