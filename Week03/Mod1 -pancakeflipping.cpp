@@ -45,7 +45,7 @@ void testcase(int t)
 	}
 	
 
-    //remaining k-1 pancakes
+       // checking remaining pancakes
 	for(int j = n-k+1 ; j <= n; j++)
 	{
 		//similar to what happen before !
