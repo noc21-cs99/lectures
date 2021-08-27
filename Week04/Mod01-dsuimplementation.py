@@ -19,7 +19,7 @@ class DSU:
             self.numset += 1
 
     def isSameSet(self,i,x):
-         return find(i)==find(j);
+         return self.find(i)==self.find(j);
 
 
 n, m = map(int, input().split())
