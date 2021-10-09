@@ -1,5 +1,5 @@
 '''
-Problem: https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=761
+Problem: https://cses.fi/problemset/task/1695/
 Author: Sudhanshu (@sudhi23)
 214
 '''
@@ -79,18 +79,49 @@ class MaxFlow():
 
         return maxf
 
-c = 0
-while True:
-    n = int(input())
-    if not n:
-        break
+    def reachable_set(self, s):
+        self.d = [-1 for i in range(self.V)]
+        self.d[s] = 0
 
-    s, t, m = map(int, input().split())
-    maxf = MaxFlow(n+1)
+        q = [s]
+        answer = [s]
 
-    for i in range(m):
-        u, v, cap = map(int, input().split())
-        maxf.add_edge(u, v, cap, False)
+        while (len(q)):
+            u = q.pop(0)
+            for idx in self.AL[u]:
+                v, cap, flow = self.EL[idx]
+                if cap-flow > 0 and self.d[v] == -1:
+                    self.d[v] = self.d[u] + 1
+                    q.append(v)
+                    answer.append(v)
 
-    c += 1
-    print("Network "+str(c)+"\nThe bandwidth is "+str(maxf.edmonds_karp(s, t))+".\n")
+        return answer
+    
+    def isEdge(self, i, j):
+        for idx in self.AL[i]:
+            if j == self.EL[idx][0]:
+                return True
+        return False
+
+n, m = map(int, input().split())
+maxf = MaxFlow(n+1)
+
+for i in range(m):
+    u, v = map(int, input().split())
+    maxf.add_edge(u, v, 1, False)
+
+print(maxf.edmonds_karp(1, n))
+
+scomp = []
+tcomp = []
+
+scomp = maxf.reachable_set(1)
+
+for i in range(1, n+1):
+    if i not in scomp:
+        tcomp.append(i)
+
+for i in scomp:
+    for j in tcomp:
+        if maxf.isEdge(i, j):
+            print(i, j)
